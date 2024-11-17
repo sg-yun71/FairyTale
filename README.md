@@ -1,10 +1,5 @@
 # FairyTale Project 🌟
 
-![GitHub Repo stars](https://img.shields.io/github/stars/sg-yun71/FairyTale?style=social)
-![GitHub issues](https://img.shields.io/github/issues/sg-yun71/FairyTale)
-![GitHub pull requests](https://img.shields.io/github/issues-pr/sg-yun71/FairyTale)
-![License](https://img.shields.io/github/license/sg-yun71/FairyTale)
-
 **FairyTale** 프로젝트는 AI 기반의 동화 생성 플랫폼으로, 다음 기능을 제공합니다:
 - **사용자가 입력한 키워드와 연령대**를 기반으로 교훈적이고 자연스러운 동화를 생성합니다.
 - 생성된 동화를 **삽화와 음성 파일**로 완성하여, 시각적 및 청각적 경험을 제공합니다.
@@ -42,11 +37,3 @@
 - **Pydub**: 오디오 파일 처리
 
 ---
-
-## 🚀 설치 및 실행 방법
-
-### 1. 저장소 복제
-
-```bash
-git clone https://github.com/sg-yun71/FairyTale.git
-cd FairyTale
