@@ -4,3 +4,4 @@ audio
 data
 .venv
 chroma_db
+.env
