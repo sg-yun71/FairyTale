@@ -1,0 +1,6 @@
+.env # .gitignore에 .env 파일 추가
+illustrations
+audio
+data
+.venv
+chroma_db
