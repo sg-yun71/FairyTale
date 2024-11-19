@@ -1,4 +1,4 @@
-# FairyTale Project 🌟
+# FairyTale Project 
 
 **FairyTale** 프로젝트는 AI 기반의 동화 생성 플랫폼으로, 다음 기능을 제공합니다:
 - **사용자가 입력한 키워드와 연령대**를 기반으로 교훈적이고 자연스러운 동화를 생성합니다.
