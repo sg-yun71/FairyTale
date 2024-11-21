@@ -27,7 +27,7 @@ def run():
 
     if story:
         # 삽화 생성
-        #generate_illustrations_from_story(story)
+        generate_illustrations_from_story(story)
 
         # 오디오 생성 및 재생
         story_paragraphs = story.split("\n\n")
