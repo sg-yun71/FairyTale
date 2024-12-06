@@ -3,14 +3,15 @@ import pygame
 import edge_tts
 import asyncio
 
+
 # 음성 생성 및 저장 함수
 async def generate_audio_from_text(text, filename, voice="ko-KR-SunHiNeural", output_format="mp3"):
     """
-        텍스트를 음성으로 변환하고 MP3 파일로 저장
-        """
+    텍스트를 음성으로 변환하고 MP3 파일로 저장
+    """
     try:
-        output_path = f"audio/{filename}.{output_format}" # 저장할 경로
-        os.makedirs("audio", exist_ok=True) # 폴더가 없으면 생성
+        output_path = f"audio/{filename}.{output_format}"  # 저장할 경로
+        os.makedirs("audio", exist_ok=True)  # 폴더가 없으면 생성
         communicate = edge_tts.Communicate(text, voice=voice)
         await communicate.save(output_path)
         print(f"음성 파일 생성 완료: {output_path}")
@@ -36,12 +37,19 @@ def play_audio(file_path):
 # 문단별 음성 생성 및 재생 함수
 async def generate_and_play_audio(story_paragraphs):
     for i, paragraph in enumerate(story_paragraphs, start=1):
-        filename = f"story_paragraph_{i}" # 저장할 파일 이름
-        print(f"Generating audio for paragraph {i}: {paragraph[:30]}...") # 첫 30자 출력
-        audio_path = await generate_audio_from_text(paragraph, filename)
+        if '"' in paragraph:
+            # 대화가 포함된 문단은 남성 목소리로 설정
+            voice = "ko-KR-InJoonNeural"
+        else:
+            # 대화가 아닌 부분은 여성 목소리로 설정
+            voice = "ko-KR-SunHiNeural"
 
-        if audio_path and os.path.exists(audio_path): # 파일이 생성되었는지 확인
-            print(f"Playing audio for paragraph {i}...")
+        filename = f"story_paragraph_{i}"  # 저장할 파일 이름
+        print(f"문단 {i}에 대한 음성 생성 중: {paragraph[:30]}...")  # 첫 30자 출력
+        audio_path = await generate_audio_from_text(paragraph, filename, voice=voice)
+
+        if audio_path and os.path.exists(audio_path):  # 파일이 생성되었는지 확인
+            print(f"문단 {i}에 대한 음성 재생 중...")
             play_audio(audio_path)
         else:
-            print(f"Failed to generate or find audio for paragraph {i}.")
+            print(f"문단 {i}에 대한 음성 생성 또는 파일 찾기에 실패했습니다.")
